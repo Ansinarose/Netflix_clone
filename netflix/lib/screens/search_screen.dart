@@ -1,6 +1,7 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:netflix_clone/common/utils.dart';
 import 'package:netflix_clone/models/movie_recommendation_mode.dart';
 import 'package:netflix_clone/models/search_model.dart';
@@ -163,11 +164,17 @@ class _SearchScreenState extends State<SearchScreen> {
                                         "assets/netflix.png",
                                         height: 170,
                                       ),
-                                      Text(
-                                        searchedMovie!.results[index].title,
-                                        maxLines: 2,
-                                        style: const TextStyle(
-                                          fontSize: 14,
+                                      Flexible(
+                                        child: Container(
+                                          width: double.infinity,
+                                          child: Text(
+                                            searchedMovie!.results[index].title,
+                                            maxLines: 2,
+                                          overflow: TextOverflow.ellipsis,
+                                            style: const TextStyle(
+                                              fontSize: 12,
+                                            ),
+                                          ),
                                         ),
                                       )
                                     ],
